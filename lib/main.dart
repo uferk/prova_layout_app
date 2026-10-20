@@ -42,7 +42,7 @@ class TelaDashboard extends StatelessWidget {
           // 📍 DESAFIO 2 (1,0 ponto): 
           // Alterar o crossAxisAlignment de .start para CrossAxisAlignment.center
           // ===================================================================
-          crossAxisAlignment: CrossAxisAlignment.start, // FIXME: Alterar para CrossAxisAlignment.center
+          crossAxisAlignment: CrossAxisAlignment.center, // DESAFIO 2: centralizado no eixo transversal
           children: [
             const Text(
               'Resumo das Observações',
