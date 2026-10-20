@@ -229,6 +229,35 @@ class TelaDashboard extends StatelessWidget {
             // Demonstrar/comprovar a ocorrência e correção de um erro de overflow
             // (RenderFlex overflow) via prints ou bloco comentado.
             // ===================================================================
+            // DESAFIO 4: RenderFlex overflow
+            // ERRO: em uma Row, um Text sem Expanded tem largura ilimitada. Quando o
+            // texto é maior que a tela, o Flutter mostra a faixa amarela e preta e
+            // registra no console: "A RenderFlex overflowed by X pixels on the right".
+            //
+            // Row(
+            //   children: [
+            //     Icon(Icons.flutter_dash, size: 48),
+            //     Text('Registro com um texto muito longo que não cabe na largura da tela do celular'),
+            //     Icon(Icons.star, size: 48),
+            //   ],
+            // )
+            //
+            // CORREÇÃO: Expanded limita o Text ao espaço que sobra na Row, e o texto
+            // passa a quebrar de linha (ou a ser cortado com TextOverflow.ellipsis).
+            const SizedBox(height: 24.0),
+            Row(
+              children: const [
+                Icon(Icons.flutter_dash, size: 48),
+                Expanded(
+                  child: Text(
+                    'Registro com um texto muito longo que não cabe na largura da tela do celular',
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
+                  ),
+                ),
+                Icon(Icons.star, size: 48),
+              ],
+            ),
           ],
         ),
       ),
