@@ -195,7 +195,34 @@ class TelaDashboard extends StatelessWidget {
             // Criar a seção "Últimos Registros" com Container, Row, ícone de lista,
             // texto e botão/ícone com MainAxisAlignment.spaceBetween.
             // ===================================================================
-            // TODO [Desafio 3]: Implementar a seção "Últimos Registros" aqui
+            // DESAFIO 3: seção "Últimos Registros" com Row e MainAxisAlignment.spaceBetween
+            Container(
+              padding: const EdgeInsets.all(12.0),
+              decoration: BoxDecoration(
+                color: Colors.teal.shade50,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Row(
+                // spaceBetween: empurra o grupo da esquerda e o botão da direita para as pontas
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: const [
+                      Icon(Icons.list_alt, color: Colors.teal),
+                      SizedBox(width: 8),
+                      Text(
+                        'Últimos Registros',
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.arrow_forward, color: Colors.teal),
+                    onPressed: () {},
+                  ),
+                ],
+              ),
+            ),
 
             // ===================================================================
             // 📍 DESAFIO 4 (1,5 ponto):
