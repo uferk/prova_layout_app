@@ -38,10 +38,11 @@ class TelaDashboard extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           // ===================================================================
-          // 📍 DESAFIO 2 (1,0 ponto): 
+          // 📍 DESAFIO 2 (1,0 ponto):
           // Alterar o crossAxisAlignment de .start para CrossAxisAlignment.center
           // ===================================================================
-          crossAxisAlignment: CrossAxisAlignment.center, // DESAFIO 2: centralizado no eixo transversal
+          crossAxisAlignment: CrossAxisAlignment
+              .center, // DESAFIO 2: centralizado no eixo transversal
           children: [
             const Text(
               'Resumo das Observações',
@@ -85,6 +86,44 @@ class TelaDashboard extends StatelessWidget {
                 ),
               ],
             ),
+            const SizedBox(height: 16.0),
+            // DESAFIO 8: layout em grade 2x2 com GridView.count
+            GridView.count(
+              crossAxisCount: 2, // 2 colunas -> 4 itens formam a grade 2x2
+              crossAxisSpacing: 12.0,
+              mainAxisSpacing: 12.0,
+              childAspectRatio: 1.2,
+              // shrinkWrap + NeverScrollableScrollPhysics: GridView dentro de Column
+              // com scroll precisa de altura definida (evita "unbounded height").
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              children: [
+                BlocoEstatistica(
+                  icone: Icons.flutter_dash,
+                  valor: '124',
+                  rotulo: 'Aves Vistas',
+                  cor: Colors.teal.shade100,
+                ),
+                BlocoEstatistica(
+                  icone: Icons.place,
+                  valor: '18',
+                  rotulo: 'Locais Visitados',
+                  cor: Colors.teal.shade50,
+                ),
+                BlocoEstatistica(
+                  icone: Icons.camera_alt,
+                  valor: '45',
+                  rotulo: 'Fotos',
+                  cor: Colors.teal.shade200,
+                ),
+                BlocoEstatistica(
+                  icone: Icons.eco,
+                  valor: '32',
+                  rotulo: 'Espécies',
+                  cor: Colors.teal.shade100,
+                ),
+              ],
+            ),
             const SizedBox(height: 24.0),
 
             const Text(
@@ -117,8 +156,17 @@ class TelaDashboard extends StatelessWidget {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: const [
-                              Text('Gavião-Real', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                              Text('Avistado no Parque Central', style: TextStyle(color: Colors.grey)),
+                              Text(
+                                'Gavião-Real',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                'Avistado no Parque Central',
+                                style: TextStyle(color: Colors.grey),
+                              ),
                             ],
                           ),
                         ],
@@ -130,14 +178,21 @@ class TelaDashboard extends StatelessWidget {
                   top: -8,
                   right: -8,
                   child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 4,
+                    ),
                     decoration: BoxDecoration(
                       color: Colors.red,
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: const Text(
                       'Raro',
-                      style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 10,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
@@ -146,14 +201,21 @@ class TelaDashboard extends StatelessWidget {
                   bottom: -8,
                   left: -8,
                   child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 4,
+                    ),
                     decoration: BoxDecoration(
                       color: Colors.green,
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: const Text(
                       'Confirmado',
-                      style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 10,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
@@ -184,7 +246,10 @@ class TelaDashboard extends StatelessWidget {
                       SizedBox(width: 8),
                       Text(
                         'Últimos Registros',
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ],
                   ),
